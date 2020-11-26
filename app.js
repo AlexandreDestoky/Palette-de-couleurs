@@ -19,13 +19,15 @@ let randomCouleurs = () => {
 //DONNE UN COULEUR A CHAQUE DIV DE COULEURS
 let attributionCouleurs = () => {
   for (const couleur of couleurs) {
-    let couleurDiv = randomCouleurs();
-    couleur.style.backgroundColor = couleurDiv;
-    let boutonDansCouleur = couleur.children;
-    console.log(boutonDansCouleur);
-    //DONNE A CHAQUE BTN dans de le div couleur une couleur opposé
-    for (const btn of boutonDansCouleur) {
-      btn.style.color = couleurOppose(couleurDiv);
+    let verrouFerme = couleur.children[0].classList.contains("fa-lock");
+    if(!verrouFerme) {
+      let couleurDiv = randomCouleurs();
+      couleur.style.backgroundColor = couleurDiv;
+      let boutonDansCouleur = couleur.children;
+      //DONNE A CHAQUE BTN dans de le div couleur une couleur opposé
+      for (const btn of boutonDansCouleur) {
+        btn.style.color = couleurOppose(couleurDiv);
+      }
     }
   }
 };
@@ -49,7 +51,7 @@ document.body.addEventListener("keyup", (e) => {
   }
 });
 
-//Copie de la couleur rgb
+//Copie de la couleur rgb au click sur le bouton copie
 for (const btnCopier of btnsCopier) {
   btnCopier.addEventListener("click", () => {
     let couleurCopier = btnCopier.parentElement.style.backgroundColor;
