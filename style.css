@@ -14,7 +14,7 @@ h1 {
 }
 
 .couleur {
-  flex-grow: 1;
+  width: 20%;
   height: 90vh;
   display: flex;
   flex-direction: column;
@@ -24,11 +24,14 @@ h1 {
 
 .fa {
   position: relative;
-  display: inline-block;
+ display: inline-block;
+  text-align: center;
   margin:1em;
+  color:blue;
   border:1px solid black;
   font-size: 2em;
   cursor: pointer;
+  /* width: 50%; */
 }
 
 .copy {
@@ -43,10 +46,13 @@ h1 {
   border-radius: 5%;
   font-size: .6em;
   top:100%;
-  left:-60px;
+  left:20%;
 }
 
 .fa:hover .copy {
   visibility: visible;
 }
 
+.invisible  {
+  display: none;
+}
