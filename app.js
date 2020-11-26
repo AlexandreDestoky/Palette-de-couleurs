@@ -11,15 +11,22 @@ let randomCouleurs = () => {
   return `rgb(${redRandom},${greenRandom},${blueRandom})`;
 }
 
+let attributionCouleurs = () => {
+  for (const couleur of couleurs) {
+    couleur.style.backgroundColor = randomCouleurs();
+  }  
+}
+
+attributionCouleurs();
 
 
 
 
-
-for (const couleur of couleurs) {
-  couleur.style.backgroundColor = randomCouleurs();
-  console.log(couleur.style.backgroundColor);
-}  
+document.body.addEventListener("keyup",(e)=> {
+  if(e.code == "Space") {
+    attributionCouleurs();
+  }
+})
 
 
 
