@@ -1,7 +1,7 @@
 //SELECTION DU DOM
 let couleurs = document.querySelectorAll(".couleur");
 let btnsCopier = document.querySelectorAll(".fa-copy");
-let btnsCadena = document.querySelectorAll(".fa-lock-open");
+let btnsCadena = document.querySelectorAll(".fa-unlock");
 let btns = document.querySelectorAll(".fa");
 
 //VARIABLES DE TRAVAIL
@@ -32,6 +32,7 @@ let attributionCouleurs = () => {
   }
 };
 
+//RENVOI LA COULEUR OPPOSE A CELLE DONNE
 let couleurOppose = (rgb) => {
   let colors = rgb.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);
   let red = colors[1];
@@ -75,8 +76,8 @@ for (const btnCopier of btnsCopier) {
 for (const btn of btnsCadena) {
   console.log(btn);
     btn.addEventListener("click",()=> {
+      btn.classList.toggle("fa-unlock");
       btn.classList.toggle("fa-lock");
-      btn.classList.toggle("fa-lock-open");
       let notifVerrou = btn.firstElementChild;
       if(notifVerrou.textContent == "Verrouillez la couleur") {
         notifVerrou.textContent = "Deverrouillez la couleur";
